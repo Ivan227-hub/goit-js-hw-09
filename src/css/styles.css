@@ -1,3 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+ul.gallery {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 0;
+}
+
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 15px;
+}
+
+.feedback-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.feedback-form button {
+  background-color: #4e75ff;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.feedback-form button:hover {
+  background-color: #6c8cff;
+}
+
 /**
   |============================
   | include css partials with
