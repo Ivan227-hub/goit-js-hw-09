@@ -1,11 +1,11 @@
-import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */import{S as a}from"./assets/vendor-CgTBfC_f.js";const e=[{preview:"./images/image1-small.jpg",original:"./images/image1-large.jpg",description:"Mountains"},{preview:"./images/image2-small.jpg",original:"./images/image2-large.jpg",description:"Lake"},{preview:"./images/image3-small.jpg",original:"./images/image3-large.jpg",description:"Forest"}],l=document.querySelector(".gallery"),g=e.map(i=>`
-    <li class="gallery-item">
-      <a class="gallery-link" href="${i.original}">
-        <img
-          class="gallery-image"
-          src="${i.preview}"
-          alt="${i.description}"
-        />
-      </a>
-    </li>`).join("");l.innerHTML=g;new a(".gallery a",{captionsData:"alt",captionPosition:"bottom",captionDelay:250});
+import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */import{S as i}from"./assets/vendor-CgTBfC_f.js";const o=[{preview:"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",original:"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",description:"Tree in sunset"},{preview:"https://cdn.pixabay.com/photo/2016/02/19/11/19/aurora-1209686__340.jpg",original:"https://cdn.pixabay.com/photo/2016/02/19/11/19/aurora-1209686_1280.jpg",description:"Aurora Borealis"},{preview:"https://cdn.pixabay.com/photo/2015/09/18/11/47/bird-944887__340.jpg",original:"https://cdn.pixabay.com/photo/2015/09/18/11/47/bird-944887_1280.jpg",description:"Flying bird"}],r=document.querySelector(".gallery"),p=o.map(a=>`
+  <li class="gallery-item">
+    <a class="gallery-link" href="${a.original}">
+      <img 
+        class="gallery-image"
+        src="${a.preview}" 
+        alt="${a.description}" 
+      />
+    </a>
+  </li>`).join("");r.innerHTML=p;new i(".gallery a",{captionsData:"alt",captionDelay:250});
 //# sourceMappingURL=1-gallery.js.map
