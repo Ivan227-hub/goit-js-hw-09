@@ -1,45 +1,52 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
+// Масив даних (приклад)
 const images = [
   {
-    preview: "./images/image1-small.jpg",
-    original: "./images/image1-large.jpg",
-    description: "Mountains",
+    preview:
+      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    description: "Tree in sunset",
   },
   {
-    preview: "./images/image2-small.jpg",
-    original: "./images/image2-large.jpg",
-    description: "Lake",
+    preview:
+      "https://cdn.pixabay.com/photo/2016/02/19/11/19/aurora-1209686__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2016/02/19/11/19/aurora-1209686_1280.jpg",
+    description: "Aurora Borealis",
   },
   {
-    preview: "./images/image3-small.jpg",
-    original: "./images/image3-large.jpg",
-    description: "Forest",
+    preview:
+      "https://cdn.pixabay.com/photo/2015/09/18/11/47/bird-944887__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2015/09/18/11/47/bird-944887_1280.jpg",
+    description: "Flying bird",
   },
 ];
 
-const galleryContainer = document.querySelector(".gallery");
-
+// Генерація розмітки
+const gallery = document.querySelector(".gallery");
 const markup = images
   .map(
     (img) => `
-    <li class="gallery-item">
-      <a class="gallery-link" href="${img.original}">
-        <img
-          class="gallery-image"
-          src="${img.preview}"
-          alt="${img.description}"
-        />
-      </a>
-    </li>`
+  <li class="gallery-item">
+    <a class="gallery-link" href="${img.original}">
+      <img 
+        class="gallery-image"
+        src="${img.preview}" 
+        alt="${img.description}" 
+      />
+    </a>
+  </li>`
   )
   .join("");
 
-galleryContainer.innerHTML = markup;
+gallery.innerHTML = markup;
 
+// Ініціалізація SimpleLightbox
 new SimpleLightbox(".gallery a", {
   captionsData: "alt",
-  captionPosition: "bottom",
   captionDelay: 250,
 });
