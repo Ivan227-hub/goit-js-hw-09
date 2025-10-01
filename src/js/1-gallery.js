@@ -1,7 +1,6 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-// Масив даних (приклад)
 const images = [
   {
     preview:
@@ -26,27 +25,26 @@ const images = [
   },
 ];
 
-// Генерація розмітки
 const gallery = document.querySelector(".gallery");
+
 const markup = images
   .map(
-    (img) => `
-  <li class="gallery-item">
-    <a class="gallery-link" href="${img.original}">
-      <img 
-        class="gallery-image"
-        src="${img.preview}" 
-        alt="${img.description}" 
-      />
-    </a>
-  </li>`
+    ({ preview, original, description }) => `
+    <li class="gallery-item">
+      <a class="gallery-link" href="${original}">
+        <img 
+          class="gallery-image" 
+          src="${preview}" 
+          alt="${description}" 
+        />
+      </a>
+    </li>`
   )
   .join("");
 
 gallery.innerHTML = markup;
 
-// Ініціалізація SimpleLightbox
-new SimpleLightbox(".gallery a", {
+const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
 });

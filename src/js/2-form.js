@@ -1,5 +1,4 @@
 const form = document.querySelector(".feedback-form");
-
 const STORAGE_KEY = "feedback-form-state";
 
 let formData = {
@@ -7,21 +6,22 @@ let formData = {
   message: "",
 };
 
-// Відновлення даних при завантаженні
-const savedData = localStorage.getItem(STORAGE_KEY);
-if (savedData) {
-  formData = JSON.parse(savedData);
-  form.elements.email.value = formData.email || "";
-  form.elements.message.value = formData.message || "";
-}
+// Відновлення даних при завантаженні сторінки
+const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+formData = { ...formData, ...savedData };
+form.elements.email.value = formData.email || "";
+form.elements.message.value = formData.message || "";
 
-// Відстежуємо інпут і зберігаємо у localStorage
+// Відстеження input і запис у localStorage
 form.addEventListener("input", (event) => {
-  formData[event.target.name] = event.target.value.trim();
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  const { name, value } = event.target;
+  if (name in formData) {
+    formData[name] = value.trim();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  }
 });
 
-// Сабміт форми
+// Обробка сабміту форми
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
